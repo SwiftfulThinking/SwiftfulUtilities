@@ -32,3 +32,36 @@ View all accessible values: https://github.com/SwiftfulThinking/SwiftfulUtilitie
 let dict = Utilities.eventParameters
 print(dict)
 ```
+
+#### ATT Prompt:
+
+```swift
+let status = await AppTrackingTransparencyHelper.requestTrackingAuthorization()
+let dict = status.eventParameters
+```
+
+#### Local Push Notifications:
+
+```swift
+// Check if can request push authorization
+await LocalNotifications.canRequestAuthorization()
+
+// Request push authorization
+let isAuthorized = try await LocalNotifications.requestAuthorization()
+
+// Schedule push notification
+try await LocalNotifications.scheduleNotification(content: content, trigger: trigger)
+
+// Customize notification content
+let content = AnyNotificationContent(id: String, title: String, body: String?, sound: Bool, badge: Int?)
+
+// Customize trigger option by date, time, or location
+let trigger = NotificationTriggerOption.date(date: date, repeats: false)
+let trigger = NotificationTriggerOption.time(timeInterval: timeInterval, repeats: false)
+let trigger = NotificationTriggerOption.location(coordinates: coordinates, radius: radius, notifyOnEntry: true, notifyOnExit: false, repeats: false)
+
+// Cancel outstanding push notifications
+LocalNotifications.removeAllPendingNotifications()
+LocalNotifications.removeAllDeliveredNotifications()
+LocalNotifications.removeNotifications(ids: [String])
+```
