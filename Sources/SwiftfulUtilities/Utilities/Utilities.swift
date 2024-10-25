@@ -152,6 +152,11 @@ public struct Utilities {
     }
 
     // MARK: ProcessInfo.processInfo
+    
+    /// A Boolean value indicating if running SwiftUI Preview mode.
+    public static var isXcodePreview: Bool {
+        ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }
 
     /// The name of the process.
     public static var processName: String {
