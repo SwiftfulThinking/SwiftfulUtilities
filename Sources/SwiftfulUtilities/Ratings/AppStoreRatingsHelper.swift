@@ -12,9 +12,9 @@ import StoreKit
 public final class AppStoreRatingsHelper {
     
     /// The last time the ratings was requested. Default value is .distantPast.
-    static var lastRatingsRequestReviewDate: Date = UserDefaults.lastRatingsRequest
+    public static var lastRatingsRequestReviewDate: Date = UserDefaults.lastRatingsRequest
 
-    static func requestRatingsReview() {
+    public static func requestRatingsReview() {
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
         
         if #available(iOS 18.0, *) {
