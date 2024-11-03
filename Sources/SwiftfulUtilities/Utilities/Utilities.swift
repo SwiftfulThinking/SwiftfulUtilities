@@ -157,6 +157,16 @@ public struct Utilities {
     public static var isXcodePreview: Bool {
         ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
     }
+    
+    /// A Boolean value indicating if UI Tests are running.
+    public static var isUITesting: Bool {
+        return ProcessInfo.processInfo.arguments.contains("UI_TESTING")
+    }
+    
+    /// A Boolean value indicating if Unit Tests are running.
+    public static var isUnitTesting: Bool {
+        return NSClassFromString("XCTestCase") != nil
+    }
 
     /// The name of the process.
     public static var processName: String {
