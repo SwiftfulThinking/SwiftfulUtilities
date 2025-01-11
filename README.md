@@ -66,7 +66,11 @@ LocalNotifications.removeAllDeliveredNotifications()
 LocalNotifications.removeNotifications(ids: [String])
 ```
 
-#### Events and Reminders:
+#### Calendar Events:
+
+Add info.plist values:
+
+`Privacy - Calendars Usage Description` : `We request access to the calendar to manage app events.`
 
 ```swift
 // Check if can request calendar access
@@ -80,6 +84,12 @@ let eventId = try await EventKitHelper.addEventToCalendar(event)
 try await EventKitHelper.modifyEventInCalendar(eventId: eventId, newTitle: "")
 try await EventKitHelper.removeEventFromCalendar(eventId: eventId)
 ```
+
+#### Reminders:
+
+Add info.plist values:
+
+`Privacy - Reminders Usage Description` : `We request access to the reminders to manage reminders.`
 
 ```swift
 // Check if can request reminders access
