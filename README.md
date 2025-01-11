@@ -24,7 +24,7 @@ let identifierForVendor = Utilities.identifierForVendor
 // ...and many more!
 ```
 
-View all accessible values: https://github.com/SwiftfulThinking/SwiftfulUtilities/blob/main/Sources/SwiftfulUtilities/Utilities.swift
+View all values: https://github.com/SwiftfulThinking/SwiftfulUtilities/blob/main/Sources/SwiftfulUtilities/Utilities/Utilities.swift
 
 #### Bulk export:
 
@@ -64,4 +64,32 @@ let trigger = NotificationTriggerOption.location(coordinates: coordinates, radiu
 LocalNotifications.removeAllPendingNotifications()
 LocalNotifications.removeAllDeliveredNotifications()
 LocalNotifications.removeNotifications(ids: [String])
+```
+
+#### Events and Reminders:
+
+```swift
+// Check if can request calendar access
+await EventKitHelper.getCalendarAccessStatus()
+
+// Request calendar authorization
+let isAuthorized = try await EventKitHelper.requestAccessToCalendar()
+
+// Add calendar events
+let eventId = try await EventKitHelper.addEventToCalendar(event)
+try await EventKitHelper.modifyEventInCalendar(eventId: eventId, newTitle: "")
+try await EventKitHelper.removeEventFromCalendar(eventId: eventId)
+```
+
+```swift
+// Check if can request reminders access
+await EventKitHelper.getRemindersAccessStatus()
+
+// Request calendar authorization
+let isAuthorized = try await EventKitHelper.requestAccessToReminders()
+
+// Add calendar events
+let reminderId = try await EventKitHelper.addReminder(reminder)
+try await EventKitHelper.modifyReminder(reminderId: reminderId, newTitle: "")
+try await EventKitHelper.removeReminder(reminderId: reminderId)
 ```
