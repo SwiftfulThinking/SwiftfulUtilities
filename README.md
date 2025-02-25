@@ -1,7 +1,3 @@
-<p align="left">
-    <img src="https://github.com/user-attachments/assets/164ba12b-1124-4a67-9a36-4e2a75b58293" alt="Swift Utilities" width="300px" />
-</p>
-
 # Utilities for Swift projects 🦾
 
 A generic Utilities implementation to access values from `Bundle.main`, `UIDevice.current`, `UIScreen.main`, `ProcessInfo.processInfo` and `Locale.current`.
