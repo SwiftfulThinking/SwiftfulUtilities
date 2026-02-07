@@ -43,7 +43,7 @@ public final class EventKitHelper {
     ///   - url: An optional URL associated with the event.
     ///   - startDate: The start date and time of the event.
     ///   - eventDuration: The duration of the event, specified using `EventDurationOption`.
-    ///   - alarms: An optional array of alarms to trigger before the event, specified using `EventAlermOption`.
+    ///   - alarms: An optional array of alarms to trigger before the event, specified using `EventAlarmOption`.
     ///   - recurring: The recurrence rule for the event, specified using `EventRecurrenceRule`. Defaults to `.never`.
     ///     - **Example for "weekly" events**: Use `.weekly(weeks: 6, interval: 1)` to create events that occur every week for a total of 6 occurrences.
     ///     - **Example for "bi-weekly" events**: Use `.weekly(weeks: 6, interval: 2)` to create events that occur every two weeks for a total of 6 occurrences.
@@ -56,7 +56,7 @@ public final class EventKitHelper {
         url: URL? = nil,
         startDate: Date,
         eventDuration: EventDurationOption,
-        alarms: [EventAlermOption]? = nil,
+        alarms: [EventAlarmOption]? = nil,
         recurring: EventRecurrenceRule = .never
     ) throws -> String {
         guard Thread.isMainThread else {
@@ -125,7 +125,7 @@ public final class EventKitHelper {
     ///   - newUrl: An optional new URL associated with the event. If `nil`, the URL remains unchanged.
     ///   - newStartDate: An optional new start date for the event. If `nil`, the start date remains unchanged.
     ///   - newEventDuration: An optional new duration for the event, specified using `EventDurationOption`. If `nil`, the duration remains unchanged.
-    ///   - newAlarms: An optional array of new alarms to set for the event, specified using `EventAlermOption`. If `nil`, alarms remain unchanged.
+    ///   - newAlarms: An optional array of new alarms to set for the event, specified using `EventAlarmOption`. If `nil`, alarms remain unchanged.
     ///   - newRecurring: An optional new recurrence rule for the event, specified using `EventRecurrenceRule`. If `nil`, the recurrence rules remain unchanged.
     ///     - **Example for "weekly recurrence"**: Use `.weekly(weeks: 6, interval: 1)` for an event that recurs weekly for 6 occurrences.
     ///     - **Example for "bi-weekly recurrence"**: Use `.weekly(weeks: 6, interval: 2)` for an event that recurs every two weeks for 6 occurrences.
@@ -138,7 +138,7 @@ public final class EventKitHelper {
         newUrl: URL? = nil,
         newStartDate: Date? = nil,
         newEventDuration: EventDurationOption? = nil,
-        newAlarms: [EventAlermOption]? = nil,
+        newAlarms: [EventAlarmOption]? = nil,
         newRecurring: EventRecurrenceRule? = nil
     ) throws {
         // Fetch the existing event using its identifier
@@ -237,7 +237,7 @@ public final class EventKitHelper {
         case allDay
     }
     
-    public enum EventAlermOption {
+    public enum EventAlarmOption {
         case minutesBeforeEvent(_ count: Int)
         case hoursBeforeEvent(_ count: Int)
         case daysBeforeEvent(_ count: Int)
@@ -280,7 +280,7 @@ public final class EventKitHelper {
     ///   - title: The title of the reminder.
     ///   - notes: An optional note associated with the reminder.
     ///   - dueDate: An optional due date for the reminder.
-    ///   - alarms: An optional array of alarms for the reminder, specified using `EventAlermOption`.
+    ///   - alarms: An optional array of alarms for the reminder, specified using `EventAlarmOption`.
     ///   - url: An optional URL associated with the reminder.
     /// - Returns: The unique identifier for the reminder created.
     /// - Throws: An error if the reminder cannot be created or saved.
@@ -289,7 +289,7 @@ public final class EventKitHelper {
         title: String,
         notes: String? = nil,
         dueDate: Date? = nil,
-        alarms: [EventAlermOption]? = nil,
+        alarms: [EventAlarmOption]? = nil,
         url: URL? = nil
     ) throws -> String {
         let reminder = EKReminder(eventStore: eventStore)
@@ -338,7 +338,7 @@ public final class EventKitHelper {
         newTitle: String? = nil,
         newNotes: String? = nil,
         newDueDate: Date? = nil,
-        newAlarms: [EventAlermOption]? = nil,
+        newAlarms: [EventAlarmOption]? = nil,
         newUrl: URL? = nil
     ) throws {
         guard let reminder = eventStore.calendarItem(withIdentifier: reminderId) as? EKReminder else {

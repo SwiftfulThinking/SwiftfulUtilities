@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UIDeviceOrientation+EXT.swift
 //  SwiftfulUtilities
 //
 //  Created by Nick Sarno on 10/9/24.

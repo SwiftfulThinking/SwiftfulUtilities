@@ -1,5 +1,5 @@
 //
-//  asdf.swift
+//  AppTrackingTransparencyHelper.swift
 //  SwiftfulUtilities
 //
 //  Created by Nick Sarno on 10/20/24.

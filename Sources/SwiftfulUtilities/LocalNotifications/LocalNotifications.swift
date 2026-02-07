@@ -1,5 +1,5 @@
 //
-//  Untitled.swift
+//  LocalNotifications.swift
 //  SwiftfulUtilities
 //
 //  Created by Nick Sarno on 10/20/24.
@@ -47,7 +47,7 @@ public final class LocalNotifications {
     /// Set the number as the badge of the app icon on the Home screen.
     ///
     /// Set to 0 (zero) to hide the badge number. The default value of this property is 0.
-    public static func setApplcationIconBadgeNumber(to int: Int) {
+    public static func setApplicationIconBadgeNumber(to int: Int) {
         instance.setBadgeCount(int)
     }
 
