@@ -38,6 +38,7 @@ extension Utilities {
             "utility_is_landscape": isLandscape,
             "utility_has_notch": hasNotch,
             "utility_is_testflight": isTestFlight,
+            "utility_is_simulator": isSimulator,
             "utility_is_debug": isDebug,
             "utility_is_dev_user": isDevUser,
             "utility_is_prod_user": isProdUser,

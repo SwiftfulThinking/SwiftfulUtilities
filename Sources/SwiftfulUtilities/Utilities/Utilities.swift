@@ -314,6 +314,15 @@ public struct Utilities {
         return component == "sandboxReceipt" || component == "CoreSimulator"
     }
 
+    /// A Boolean value indicating whether the app is running in the iOS Simulator.
+    public static var isSimulator: Bool {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
+    }
+
     /// A Boolean value indicating whether the app is running in a debug build.
     public static var isDebug: Bool {
         #if DEBUG
